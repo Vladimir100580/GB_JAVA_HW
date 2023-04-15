@@ -18,11 +18,11 @@ public class HW1_13_04_23_dop {
         int n = task2(i);
         System.out.println(n);
 
-        short[] arr1 = task3(n, i);
-        System.out.println(Arrays.toString(arr1));
+        short[] m1 = task3(n, i);
+        System.out.println(Arrays.toString(m1));
 
-        short[] arr2 = task4(n, i);
-        System.out.println(Arrays.toString(arr2));
+        short[] m2 = task4(n, i);
+        System.out.println(Arrays.toString(m2));
     }
 
     static int task1(){    // простите, не стал креативить с названиями методов
