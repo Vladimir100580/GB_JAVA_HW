@@ -5,7 +5,6 @@
 // 4. Найти все некратные n числа в диапазоне от Short.MIN_VALUE до i и сохранить в массив m2
 // Пункты реализовать в методе main
 
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -22,25 +21,24 @@ public class HW1_13_04_23 {
         System.out.println(n);
 
 
-        int k = 0;
-        short[] arr1 = new short[Short.MAX_VALUE/n + 1];  // числа, кратые n, находим через произведение
-        while (k * n <= Short.MAX_VALUE){
-            arr1[k] = (short) (k * n);   // "(short)" подставил сам редактор, иначе подчеркивал красным
-            k ++;
+        int n0 = ((i - 1) / n + 1) * n; // ближайшее справа к i число, кратное n ... (i - 1) т.к. учитыввем и само i.
+        int n1 = (Short.MAX_VALUE / n) * n; // ближайшее слева к MAX_VALUE число кратное n
+        short[] m1 = new short[(n1 - n0) / n + 1];  // арифметика помогла вычислить размерность массива
+        for (int l = n0; l <= n1; l += n) {         // сократили количесво итерраций в n раз
+            m1[(l - n0) / n] = (short) l;      // (short) подставляет сам редактор. Иначе подчерктвает красным
         }
-//        System.out.println(Short.MAX_VALUE);
-//        System.out.println(Short.MIN_VALUE);
-        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(m1));
 
-
-        int k1 = 1;
-        short[] arr2 = new short[(-Short.MIN_VALUE)/n];  // здесь уже ноль не учитываем
-        while (-k1 * n >= Short.MIN_VALUE){
-            arr2[k1 - 1] = (short) (-k1 * n);   // начинаем с -n
-            k1 ++;
+        int k = (i  / n ) + (Short.MIN_VALUE / n ) * (-1) + 1; // количество чисел на промежутке от MIN_VALUE до i кратных n.
+        short[] m2 = new short[i - Short.MIN_VALUE + 1 - k];   // вновь арифметика (единички в строках 32 и 33 можно было убрать ... оставил для наглядности)
+        int m = 0;
+        for (int l = Short.MIN_VALUE; l <= i; l++) {
+            if (l % n != 0) {
+                m2[m] = (short) l;
+                m++;
+            }
         }
-        System.out.println(Arrays.toString(arr2));
+    System.out.println(Arrays.toString(m2));
 
     }
-
 }

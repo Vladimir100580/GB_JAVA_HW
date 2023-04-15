@@ -16,15 +16,13 @@ public class HW1_13_04_23_dop {
         System.out.println(i);
 
         int n = task2(i);
-        System.out.printf("n=%d", n);
+        System.out.println(n);
 
-        short[] arr1 = task3(n);
+        short[] arr1 = task3(n, i);
         System.out.println(Arrays.toString(arr1));
-        System.out.printf("n=%d", n);
 
-        short[] arr2 = task4(n);
+        short[] arr2 = task4(n, i);
         System.out.println(Arrays.toString(arr2));
-
     }
 
     static int task1(){    // простите, не стал креативить с названиями методов
@@ -32,26 +30,28 @@ public class HW1_13_04_23_dop {
     }
 
     static int task2(int i){
-        int n = Integer.toBinaryString(i).length();    // не стал использовать выделенную функцию, пошёл "двухходовочкой"
-        return n;
+        return Integer.toBinaryString(i).length();    // не стал использовать выделенную функцию, пошёл "двухходовочкой"
     }
 
-    static short[] task3(int n){
-        int k = 0;
-        short[] arr = new short[Short.MAX_VALUE/n + 1];
-        while (k * n <= Short.MAX_VALUE){
-            arr[k] = (short) (k * n);                        // в методах task3 и task4 используем одноименные переменные, т.к. они локальные
-            k ++;
+    static short[] task3(int n, int i){
+        int n0 = ((i - 1) / n + 1) * n;
+        int n1 = (Short.MAX_VALUE / n) * n;
+        short[] arr = new short[(n1 - n0) / n + 1];
+        for (int l = n0; l <= n1; l += n) {
+            arr[(l - n0) / n] = (short) l;
         }
         return arr;
     }
 
-    static short[] task4(int n){
-        int k = 1;
-        short[] arr = new short[(-Short.MIN_VALUE)/n];
-        while (-k * n >= Short.MIN_VALUE){
-            arr[k - 1] = (short) (-k * n);
-            k ++;
+    static short[] task4(int n, int i){
+        int k = (i  / n ) + (Short.MIN_VALUE / n ) * (-1) + 1;
+        short[] arr = new short[i - Short.MIN_VALUE + 1 - k];
+        int m = 0;
+        for (int l = Short.MIN_VALUE; l <= i; l++) {
+            if (l % n != 0) {
+                arr[m] = (short) l;
+                m++;
+            }
         }
         return arr;
     }
