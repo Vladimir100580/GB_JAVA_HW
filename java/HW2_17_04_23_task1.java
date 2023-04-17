@@ -7,9 +7,9 @@ public class HW2_17_04_23_task1 {
                 "что в школе обычно бывает не больше шести уроков. Не удивляйтесь, если я скажу, что учителем " +
                 "на этом уроке может быть и береза возле ваше дома, и бабушка. и вы сами (В. Песков)";
 
-
         String oldW = "урок";
         String newW = "занятие";
+
 
         // Метод с реплейсом String
         long t3 = System.nanoTime();
@@ -22,13 +22,13 @@ public class HW2_17_04_23_task1 {
         long t6 = System.nanoTime();
         StringBuilder stf0 = new StringBuilder(st0);
         StringBuilder delStr = new StringBuilder(st0);
-        int nn = 0; // n - счетчик позиции
+        int nn = 0; // nn - счетчик позиции
         int ind1 = delStr.indexOf(oldW);
         while (ind1 != -1)
         {
             ind1 = delStr.indexOf(oldW);
             nn += ind1;
-            StringBuilder temp = stf0.replace(nn, nn + oldW.length(), newW);
+            stf0.replace(nn, nn + oldW.length(), newW);
             nn += newW.length();
             delStr.delete(0, ind1+oldW.length());
         }
@@ -41,7 +41,7 @@ public class HW2_17_04_23_task1 {
         String stt = "";
         StringBuilder st2 = new StringBuilder(st0);
         int n1 = 0;
-        while (n1 != -1) {
+        while (true) {
             n1 = st2.indexOf(oldW);
             if (n1 < 0) {
                 stt += st2;
