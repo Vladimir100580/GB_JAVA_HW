@@ -1,6 +1,5 @@
-//Написать метод принимающий строку, ищущий в ней основание и степень После этого расчитывающий результат
-// и выводящий в консоль в консоль строку параметра + ответ. Пример строки: "Основание -12б степень 7, результат".
-// Попробовать с разными входящими строками.
+// Сравнить скорость работы реплейса классов String и StringBuilder.
+
 public class HW2_17_04_23_task1 {
     public static void main(String[] args) {
         String st0 = "Есть урок, который идет не сорок пять минут, а всю жизнь. " +
@@ -19,7 +18,7 @@ public class HW2_17_04_23_task1 {
         System.out.println(System.nanoTime() - t3);
 
 
-        // Метод с реплейсом StringBuilder              (САМЫЙ БЫСТРЫЙ!!!!!!  ... хотя, иногда последний метод обгоняет)
+        // Метод с реплейсом StringBuilder              (САМЫЙ БЫСТРЫЙ!!!!!!  ... хотя, иногда последний метод обгоняет Но, однозначно быстрее String реплейса)
         long t6 = System.nanoTime();
         StringBuilder stf0 = new StringBuilder(st0);
         StringBuilder delStr = new StringBuilder(st0);
@@ -37,7 +36,7 @@ public class HW2_17_04_23_task1 {
         System.out.println(System.nanoTime() - t6);
 
 
-        // String метод (За исключенгием обработки s2 delete)
+        // String метод (За исключенгием обработки s2 delete) без реплейса (сборкой строки)
         long t0 = System.nanoTime();
         String stt = "";
         StringBuilder st2 = new StringBuilder(st0);
@@ -58,7 +57,7 @@ public class HW2_17_04_23_task1 {
         System.out.println(System.nanoTime() - t0);
 
 
-        // StringBuilder метод
+        // StringBuilder метод реплейса (сборкой строки)
         long t4 = System.nanoTime();
         StringBuilder sttt = new StringBuilder("");
         StringBuilder st3 = new StringBuilder(st0);
