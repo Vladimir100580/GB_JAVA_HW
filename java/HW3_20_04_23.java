@@ -68,17 +68,19 @@ public class HW3_20_04_23 {
         // 5. Создать ArrayList<Integer> и добавить нулевым эллементом ноль 10000 раз. (ПРОСТИТЕ за вольность ... еще попробовал со 100000)
         ArrayList<Integer> list6 = new ArrayList<>();
         long t50 = System.nanoTime();
-        for (int i = 0; i<100000; i++) list6.add(0, 0);  // если сделать 10000, отношение затраченного времени примерно равно 4
+        for (int i = 0; i<100000; i++) list6.add(list6.size()/2, 0);  // если сделать 10000, отношение затраченного времени примерно равно 4
         long t51 = System.nanoTime();
-        System.out.print("Время выполнения с ArrayList<Integer> в нс: ");
+        //System.out.println(list6);
+        System.out.print("Время выполнения  с ArrayList<Integer> в нс: ");
         System.out.println(t51-t50);
 
         // 6. Создать LinkedList<Integer> и добавить нулевым эллементом ноль 10000 раз.
         LinkedList<Integer> list7 = new LinkedList<>();
         long t60 = System.nanoTime();
-        for (int i = 0; i<100000; i++) list7.add(0, 0);  // со 100000 LinkedList уже выигрывает почти в 100 раз.
+        for (int i = 0; i<100000; i++) list7.add(list7.size()/2, 0);  // со 100000 LinkedList уже выигрывает почти в 100 раз.
         long t61 = System.nanoTime();
-        System.out.print("Время выполнения с LinkedList<Integer> в нс: ");
+        //System.out.println(list7);
+        System.out.print("Время выполнения с LinkedList<Integer> в нс: ");       //в середину списка вставляется краааане медленно
         System.out.println(t61-t60);
 
         // 7. Сравнить время работы пятого и шестого пунктов.
