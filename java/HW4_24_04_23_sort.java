@@ -11,7 +11,7 @@ public class HW4_24_04_23_sort {
 
     public static void main(String[] args) throws Exception {
 
-        ArrayList<String> listf = new ArrayList<>(); // Эти списки, после заполнения, не меняем (рассматриваем как данные БД, насктолько понял из семинара)
+        ArrayList<String> listf = new ArrayList<>(); // Эти списки, после заполнения, не меняем (рассматриваем как данные БД, насколько понял из семинара)
         ArrayList<String> listn = new ArrayList<>();
         ArrayList<String> listsn = new ArrayList<>();
         ArrayList<Integer> listage = new ArrayList<>();
