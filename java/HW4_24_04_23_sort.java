@@ -6,6 +6,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class HW4_24_04_23_sort {
 
@@ -43,7 +44,8 @@ public class HW4_24_04_23_sort {
         // Однако, вкралась другая идея...
 
         // Сортировка
-        ArrayList<Integer> listid0 = (ArrayList) listid.clone();  //  создаем копию listid, дабы его не трогать
+        var listid0 = new ArrayList<>(listid);          //  !!!! (продвинутый вариант) создаем копию listid, дабы его не трогать
+        //ArrayList<Integer> listid0 = (ArrayList) listid.clone();  //  создаем копию listid, дабы его не трогать (1 - й вариант)
         ArrayList<Integer> listid1 = new ArrayList<>();   // список индексов отсортированного списка (в перспективе)
 
         int min = 1000;   // Адам, насколько известно, жил меньше
