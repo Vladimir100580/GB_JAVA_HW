@@ -5,18 +5,18 @@ public class HW1_21_08_2023_task1 {
     public static void main(String[] args) {
         int[][] ints = new int[6][];
         ints[0] = new int[]{0, 7, 0, 1, 8};
-        ints[1] = new int[]{1, 4, 1, 0, 1, 8};
+        ints[1] = new int[]{1, 4, 1, 0, 1, 9};
         ints[2] = new int[]{2, 1, 0};
         ints[3] = new int[]{6, 5};
         ints[4] = new int[]{0, 1};
-        ints[5] = new int[]{9, 18};
+        ints[5] = new int[]{7, 5};
 
-        System.out.println(matrixCount2(ints));
+        System.out.println(matrixCount1(ints));
 
     }
 
 
-    public static String matrixCount2(int[][] matrix) {
+    public static String matrixCount1(int[][] matrix) {
         for (int j = 0; j < matrix.length; j++) {
             for (int i = 0; i < matrix[j].length; i++) {
 //                int fl1 = 0;
@@ -41,4 +41,6 @@ public class HW1_21_08_2023_task1 {
         }
         return "Удовлетворяет условию";
     }
+
+
 }
